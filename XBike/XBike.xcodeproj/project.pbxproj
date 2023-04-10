@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A55EC2CD8BB511524A6BDED /* Pods_XBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB549D0C235CB88BC662E60C /* Pods_XBike.framework */; };
 		8624FCC829E4BB7300443169 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8624FCC729E4BB7300443169 /* AppDelegate.swift */; };
 		8624FCCA29E4BB7300443169 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8624FCC929E4BB7300443169 /* SceneDelegate.swift */; };
 		8624FCCC29E4BB7300443169 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8624FCCB29E4BB7300443169 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		277361F2E77253A9C93D3AF8 /* Pods-XBike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBike.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-XBike/Pods-XBike.debug.xcconfig"; sourceTree = "<group>"; };
 		8624FCC429E4BB7300443169 /* XBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8624FCC729E4BB7300443169 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8624FCC929E4BB7300443169 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		8624FCD029E4BB7400443169 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8624FCD329E4BB7400443169 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8624FCD529E4BB7400443169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEF4542F0922FB036771F56E /* Pods-XBike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBike.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-XBike/Pods-XBike.release.xcconfig"; sourceTree = "<group>"; };
+		DB549D0C235CB88BC662E60C /* Pods_XBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A55EC2CD8BB511524A6BDED /* Pods_XBike.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		755C5DBC124C56CB1913E553 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				277361F2E77253A9C93D3AF8 /* Pods-XBike.debug.xcconfig */,
+				AEF4542F0922FB036771F56E /* Pods-XBike.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8624FCBB29E4BB7300443169 = {
 			isa = PBXGroup;
 			children = (
 				8624FCC629E4BB7300443169 /* XBike */,
 				8624FCC529E4BB7300443169 /* Products */,
+				755C5DBC124C56CB1913E553 /* Pods */,
+				C2B3E1AB63A7C7E5D1FC7CC9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +116,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		C2B3E1AB63A7C7E5D1FC7CC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB549D0C235CB88BC662E60C /* Pods_XBike.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8624FCD829E4BB7400443169 /* Build configuration list for PBXNativeTarget "XBike" */;
 			buildPhases = (
+				43DC9499F8D918F7EDDB49B7 /* [CP] Check Pods Manifest.lock */,
 				8624FCC029E4BB7300443169 /* Sources */,
 				8624FCC129E4BB7300443169 /* Frameworks */,
 				8624FCC229E4BB7300443169 /* Resources */,
+				AC7874BBEA89127BEA0896A4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -164,6 +191,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		43DC9499F8D918F7EDDB49B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XBike-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC7874BBEA89127BEA0896A4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XBike/Pods-XBike-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XBike/Pods-XBike-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XBike/Pods-XBike-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8624FCC029E4BB7300443169 /* Sources */ = {
@@ -314,6 +383,7 @@
 		};
 		8624FCD929E4BB7400443169 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 277361F2E77253A9C93D3AF8 /* Pods-XBike.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -343,6 +413,7 @@
 		};
 		8624FCDA29E4BB7400443169 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEF4542F0922FB036771F56E /* Pods-XBike.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
