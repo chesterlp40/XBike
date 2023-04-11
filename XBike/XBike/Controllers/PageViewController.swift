@@ -10,16 +10,20 @@ import UIKit
 class PageViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var subTitleLabel: UILabel!
+    @IBOutlet weak var actionButton: UIButton!
     
     private let imageName: String
     private let subTitle: String
+    private let isLastPage: Bool
     
     init(
         imageName: String,
-        subTitle: String
+        subTitle: String,
+        isLastPage: Bool? = nil
     ) {
         self.imageName = imageName
         self.subTitle = subTitle
+        self.isLastPage = isLastPage ?? false
         super.init(
             nibName: nil,
             bundle: nil
@@ -36,9 +40,25 @@ class PageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupComponents()
+    }
+    
+    private func setupComponents() {
         self.imageView.image = UIImage(
             named: self.imageName
         )
         self.subTitleLabel.text = self.subTitle
+        self.actionButton.layer.cornerRadius = 8
+        self.actionButton.titleLabel?.font = UIFont(
+            name: "Kohinoor Telugu Light",
+            size: 20
+        )
+        self.actionButton.isHidden = !self.isLastPage
+    }
+    
+    @IBAction func actionButtonPressed(
+        _ sender: UIButton
+    ) {
+        
     }
 }

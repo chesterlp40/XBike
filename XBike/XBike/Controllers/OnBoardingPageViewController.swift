@@ -20,7 +20,8 @@ class OnBoardingPageViewController: UIPageViewController {
             ),
             PageViewController(
                 imageName: "boastful",
-                subTitle: "See your progress and challenge yourself!"
+                subTitle: "See your progress and challenge yourself!",
+                isLastPage: true
             )
         ]
     }()
