@@ -18,10 +18,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
-        window?.rootViewController = OnBoardingPageViewController(
+        let viewController = OnBoardingPageViewController(
             transitionStyle: .scroll,
             navigationOrientation: .horizontal
         )
+        let navigation = UINavigationController(
+            rootViewController: viewController
+        )
+        window?.rootViewController = navigation
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

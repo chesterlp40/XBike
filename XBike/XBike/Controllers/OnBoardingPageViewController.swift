@@ -36,13 +36,17 @@ class OnBoardingPageViewController: UIPageViewController {
         dataSource = self
         delegate = self
         
+        self.navigationController?.setNavigationBarHidden(
+            true,
+            animated: false
+        )
         self.pageControl.addTarget(
             self,
             action: #selector(pageControlTapped(_:)),
             for: .valueChanged
         )
         self.setViewControllers(
-            [pages[initialPage]],
+            [self.pages[self.initialPage]],
             direction: .forward,
             animated: true,
             completion: nil
@@ -55,7 +59,7 @@ class OnBoardingPageViewController: UIPageViewController {
         self.pageControl.translatesAutoresizingMaskIntoConstraints = false
         self.pageControl.currentPageIndicatorTintColor = .black
         self.pageControl.pageIndicatorTintColor = .systemGray2
-        self.pageControl.numberOfPages = pages.count
+        self.pageControl.numberOfPages = self.pages.count
         self.pageControl.currentPage = self.initialPage
         self.view.addSubview(self.pageControl)
         
@@ -64,7 +68,7 @@ class OnBoardingPageViewController: UIPageViewController {
             self.pageControl.heightAnchor.constraint(equalToConstant: 20),
             self.view.bottomAnchor.constraint(
                 equalToSystemSpacingBelow: self.pageControl.bottomAnchor,
-                multiplier: 1
+                multiplier: 3
             ),
         ])
     }
@@ -91,15 +95,15 @@ extension OnBoardingPageViewController: UIPageViewControllerDataSource {
         viewControllerBefore viewController: UIViewController
     ) -> UIViewController? {
         guard
-            let currentIndex = pages.firstIndex(of: viewController)
+            let currentIndex = self.pages.firstIndex(of: viewController)
         else {
             return nil
         }
         
         if currentIndex == 0 {
-            return pages.last
+            return self.pages.last
         } else {
-            return pages[currentIndex - 1]
+            return self.pages[currentIndex - 1]
         }
     }
     
@@ -108,15 +112,15 @@ extension OnBoardingPageViewController: UIPageViewControllerDataSource {
         viewControllerAfter viewController: UIViewController
     ) -> UIViewController? {
         guard
-            let currentIndex = pages.firstIndex(of: viewController)
+            let currentIndex = self.pages.firstIndex(of: viewController)
         else {
             return nil
         }
 
-        if currentIndex < pages.count - 1 {
-            return pages[currentIndex + 1]
+        if currentIndex < self.pages.count - 1 {
+            return self.pages[currentIndex + 1]
         } else {
-            return pages.first
+            return self.pages.first
         }
     }
 }
