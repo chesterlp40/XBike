@@ -18,14 +18,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
-        let viewController = OnBoardingPageViewController(
-            transitionStyle: .scroll,
-            navigationOrientation: .horizontal
-        )
-        let navigation = UINavigationController(
-            rootViewController: viewController
-        )
-        window?.rootViewController = navigation
+        let userDefaults = UserDefaults.standard
+        if userDefaults.bool(forKey: "isOnboardingDone") {
+            let tabController = UITabBarController()
+            let currentRideViewController = UINavigationController(
+                rootViewController: CurrentRideViewController()
+            )
+            let myProgressViewController = UINavigationController(
+                rootViewController: MyProgressViewController()
+            )
+            tabController.setViewControllers(
+                [currentRideViewController, myProgressViewController],
+                animated: false
+            )
+            tabController.tabBar.isTranslucent = false
+            guard let items = tabController.tabBar.items else { return }
+            let images = ["figure.outdoor.cycle", "medal.fill"]
+            for x in 0..<items.count {
+                items[x].image = UIImage(systemName: images[x])
+            }
+            window?.rootViewController = tabController
+        } else {
+            window?.rootViewController = OnBoardingPageViewController(
+                transitionStyle: .scroll,
+                navigationOrientation: .horizontal
+            )
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
