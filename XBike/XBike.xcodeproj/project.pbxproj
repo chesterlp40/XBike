@@ -10,10 +10,11 @@
 		2A55EC2CD8BB511524A6BDED /* Pods_XBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB549D0C235CB88BC662E60C /* Pods_XBike.framework */; };
 		8624FCC829E4BB7300443169 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8624FCC729E4BB7300443169 /* AppDelegate.swift */; };
 		8624FCCA29E4BB7300443169 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8624FCC929E4BB7300443169 /* SceneDelegate.swift */; };
-		8624FCCC29E4BB7300443169 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8624FCCB29E4BB7300443169 /* ViewController.swift */; };
-		8624FCCF29E4BB7300443169 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8624FCCD29E4BB7300443169 /* Main.storyboard */; };
 		8624FCD129E4BB7400443169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8624FCD029E4BB7400443169 /* Assets.xcassets */; };
 		8624FCD429E4BB7400443169 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8624FCD229E4BB7400443169 /* LaunchScreen.storyboard */; };
+		865D620329E4F11600C622EC /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865D620129E4F11600C622EC /* PageViewController.swift */; };
+		865D620429E4F11600C622EC /* PageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 865D620229E4F11600C622EC /* PageViewController.xib */; };
+		865D620629E4F68A00C622EC /* OnBoardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865D620529E4F68A00C622EC /* OnBoardingPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +22,12 @@
 		8624FCC429E4BB7300443169 /* XBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8624FCC729E4BB7300443169 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8624FCC929E4BB7300443169 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8624FCCB29E4BB7300443169 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8624FCCE29E4BB7300443169 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8624FCD029E4BB7400443169 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8624FCD329E4BB7400443169 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8624FCD529E4BB7400443169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		865D620129E4F11600C622EC /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		865D620229E4F11600C622EC /* PageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageViewController.xib; sourceTree = "<group>"; };
+		865D620529E4F68A00C622EC /* OnBoardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageViewController.swift; sourceTree = "<group>"; };
 		AEF4542F0922FB036771F56E /* Pods-XBike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBike.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-XBike/Pods-XBike.release.xcconfig"; sourceTree = "<group>"; };
 		DB549D0C235CB88BC662E60C /* Pods_XBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -48,7 +50,6 @@
 				277361F2E77253A9C93D3AF8 /* Pods-XBike.debug.xcconfig */,
 				AEF4542F0922FB036771F56E /* Pods-XBike.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -102,7 +103,7 @@
 		8624FCDD29E4BC1D00443169 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8624FCCD29E4BB7300443169 /* Main.storyboard */,
+				865D620229E4F11600C622EC /* PageViewController.xib */,
 				8624FCD229E4BB7400443169 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -111,7 +112,8 @@
 		8624FCDE29E4BC2900443169 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8624FCCB29E4BB7300443169 /* ViewController.swift */,
+				865D620129E4F11600C622EC /* PageViewController.swift */,
+				865D620529E4F68A00C622EC /* OnBoardingPageViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -184,9 +186,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				865D620429E4F11600C622EC /* PageViewController.xib in Resources */,
 				8624FCD429E4BB7400443169 /* LaunchScreen.storyboard in Resources */,
 				8624FCD129E4BB7400443169 /* Assets.xcassets in Resources */,
-				8624FCCF29E4BB7300443169 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,23 +241,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8624FCCC29E4BB7300443169 /* ViewController.swift in Sources */,
+				865D620629E4F68A00C622EC /* OnBoardingPageViewController.swift in Sources */,
 				8624FCC829E4BB7300443169 /* AppDelegate.swift in Sources */,
 				8624FCCA29E4BB7300443169 /* SceneDelegate.swift in Sources */,
+				865D620329E4F11600C622EC /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8624FCCD29E4BB7300443169 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8624FCCE29E4BB7300443169 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8624FCD229E4BB7400443169 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -395,7 +390,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -425,7 +419,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
