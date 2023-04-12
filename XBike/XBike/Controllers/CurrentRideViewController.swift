@@ -5,24 +5,67 @@
 //  Created by Ezequiel Rasgido on 11/04/2023.
 //
 
-import UIKit
+import CoreLocation
 import GoogleMaps
+import UIKit
 
-class CurrentRideViewController: BaseViewController {
+class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
+    
+    @IBOutlet weak var mapView: GMSMapView!
+
+    private var locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Current Ride"
         
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
-        self.view.addSubview(mapView)
-
-        // Creates a marker in the center of the map.
+        self.locationManager.delegate = self
+    }
+    
+    func locationManagerDidChangeAuthorization(
+        _ manager: CLLocationManager
+    ) {
+        switch manager.authorizationStatus {
+        case .authorizedAlways:
+            self.locationManager.requestLocation()
+        case .authorizedWhenInUse:
+            self.locationManager.requestLocation()
+        case .denied:
+            return
+        case .notDetermined:
+            self.locationManager.requestWhenInUseAuthorization()
+        case .restricted:
+            self.locationManager.requestWhenInUseAuthorization()
+        default:
+            self.locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func locationManager(
+        _ manager: CLLocationManager,
+        didUpdateLocations locations: [CLLocation]
+    ) {
+        let coordenates = CLLocationCoordinate2D(
+            latitude: self.locationManager.location?.coordinate.latitude ?? 0.0,
+            longitude: self.locationManager.location?.coordinate.longitude ?? 0.0
+        )
+        self.mapView.camera = GMSCameraPosition(
+            target: coordenates,
+            zoom: 8,
+            bearing: 0,
+            viewingAngle: 0
+        )
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
+        marker.position = coordenates
+        marker.title = "Hey Hi!"
+        marker.snippet = "I'm here"
         marker.map = mapView
+    }
+    
+    func locationManager(
+        _ manager: CLLocationManager,
+        didFailWithError error: Error
+    ) {
+        print(error)
     }
 }
