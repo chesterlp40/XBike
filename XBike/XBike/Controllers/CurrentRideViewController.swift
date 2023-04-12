@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrentRideViewController: UIViewController {
+class CurrentRideViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
