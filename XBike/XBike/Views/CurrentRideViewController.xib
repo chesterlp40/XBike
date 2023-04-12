@@ -5,11 +5,13 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CurrentRideViewController" customModule="XBike" customModuleProvider="target">
             <connections>
+                <outlet property="mapView" destination="obH-Rh-VOj" id="CQC-7t-99b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,9 +19,26 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obH-Rh-VOj" customClass="GMSMapView">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <point key="canvasLocation" x="140" y="21"/>
+            <constraints>
+                <constraint firstItem="obH-Rh-VOj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="23j-aY-9YN"/>
+                <constraint firstItem="obH-Rh-VOj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WPd-7U-me9"/>
+                <constraint firstAttribute="bottom" secondItem="obH-Rh-VOj" secondAttribute="bottom" id="gOE-5q-bcz"/>
+                <constraint firstItem="obH-Rh-VOj" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="nmj-KZ-9c8"/>
+            </constraints>
+            <point key="canvasLocation" x="139.69465648854961" y="20.422535211267608"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
