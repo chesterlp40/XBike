@@ -19,6 +19,8 @@
 		866FE1C829E5233F006C3673 /* CurrentRideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 866FE1C629E5233F006C3673 /* CurrentRideViewController.xib */; };
 		866FE1CB29E52371006C3673 /* MyProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866FE1C929E52371006C3673 /* MyProgressViewController.swift */; };
 		866FE1CC29E52371006C3673 /* MyProgressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 866FE1CA29E52371006C3673 /* MyProgressViewController.xib */; };
+		866FE1CE29E62863006C3673 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866FE1CD29E62863006C3673 /* MainViewController.swift */; };
+		866FE1D029E6353A006C3673 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866FE1CF29E6353A006C3673 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		866FE1C629E5233F006C3673 /* CurrentRideViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentRideViewController.xib; sourceTree = "<group>"; };
 		866FE1C929E52371006C3673 /* MyProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProgressViewController.swift; sourceTree = "<group>"; };
 		866FE1CA29E52371006C3673 /* MyProgressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProgressViewController.xib; sourceTree = "<group>"; };
+		866FE1CD29E62863006C3673 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		866FE1CF29E6353A006C3673 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AEF4542F0922FB036771F56E /* Pods-XBike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBike.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-XBike/Pods-XBike.release.xcconfig"; sourceTree = "<group>"; };
 		DB549D0C235CB88BC662E60C /* Pods_XBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,6 +130,8 @@
 				865D620529E4F68A00C622EC /* OnBoardingPageViewController.swift */,
 				866FE1C529E5233F006C3673 /* CurrentRideViewController.swift */,
 				866FE1C929E52371006C3673 /* MyProgressViewController.swift */,
+				866FE1CD29E62863006C3673 /* MainViewController.swift */,
+				866FE1CF29E6353A006C3673 /* BaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -255,10 +261,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				866FE1CE29E62863006C3673 /* MainViewController.swift in Sources */,
 				866FE1C729E5233F006C3673 /* CurrentRideViewController.swift in Sources */,
 				866FE1CB29E52371006C3673 /* MyProgressViewController.swift in Sources */,
 				865D620629E4F68A00C622EC /* OnBoardingPageViewController.swift in Sources */,
 				8624FCC829E4BB7300443169 /* AppDelegate.swift in Sources */,
+				866FE1D029E6353A006C3673 /* BaseViewController.swift in Sources */,
 				8624FCCA29E4BB7300443169 /* SceneDelegate.swift in Sources */,
 				865D620329E4F11600C622EC /* PageViewController.swift in Sources */,
 			);

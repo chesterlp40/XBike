@@ -60,27 +60,8 @@ class PageViewController: UIViewController {
         _ sender: UIButton
     ) {
         UserDefaults.standard.set(true, forKey: "isOnboardingDone")
-        let tabController = UITabBarController()
-        let currentRideViewController = UINavigationController(
-            rootViewController: CurrentRideViewController()
-        )
-        let myProgressViewController = UINavigationController(
-            rootViewController: MyProgressViewController()
-        )
-        tabController.setViewControllers(
-            [currentRideViewController, myProgressViewController],
-            animated: false
-        )
-        tabController.tabBar.isTranslucent = false
-        guard let items = tabController.tabBar.items else { return }
-        let images = ["figure.outdoor.cycle", "medal.fill"]
-        for x in 0..<items.count {
-            items[x].image = UIImage(systemName: images[x])
-        }
-        tabController.modalPresentationStyle = .fullScreen
-        self.present(
-            tabController,
-            animated: true
-        )
+        let mainViewController = MainViewController()
+        mainViewController.modalPresentationStyle = .fullScreen
+        self.present(mainViewController, animated: true)
     }
 }
