@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RideTimesCell" rowHeight="130" id="KGk-i7-Jjw" customClass="RideTimesCell" customModule="XBike" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pc3-Fq-wTl">
+                        <rect key="frame" x="0.0" y="0.0" width="195" height="130"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNO-7G-iDI">
+                                <rect key="frame" x="0.0" y="0.0" width="195" height="84"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paN-4d-ON4">
+                                        <rect key="frame" x="0.0" y="0.0" width="195" height="84"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="195" id="6dh-aG-xUl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="39"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="paN-4d-ON4" secondAttribute="bottom" id="4YC-QW-2lP"/>
+                                    <constraint firstItem="paN-4d-ON4" firstAttribute="top" secondItem="tNO-7G-iDI" secondAttribute="top" id="FAY-pf-biJ"/>
+                                    <constraint firstItem="paN-4d-ON4" firstAttribute="leading" secondItem="tNO-7G-iDI" secondAttribute="leading" id="MUE-yQ-Cvl"/>
+                                    <constraint firstAttribute="trailing" secondItem="paN-4d-ON4" secondAttribute="trailing" id="iwH-FP-sHO"/>
+                                    <constraint firstAttribute="width" constant="195" id="unp-ha-hKC"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fes-QU-VrP">
+                                <rect key="frame" x="0.0" y="84" width="195" height="46"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A: Calle buenabentura  B: Luis Garcia 1355 " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIW-h4-1nz">
+                                        <rect key="frame" x="12" y="0.0" width="190" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Gzg-3d-nDT"/>
+                                            <constraint firstAttribute="width" constant="190" id="K45-qe-edP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="NIW-h4-1nz" secondAttribute="bottom" constant="6" id="1vU-s7-qv2"/>
+                                    <constraint firstItem="NIW-h4-1nz" firstAttribute="top" secondItem="Fes-QU-VrP" secondAttribute="top" id="NmP-eF-CKr"/>
+                                    <constraint firstItem="NIW-h4-1nz" firstAttribute="leading" secondItem="Fes-QU-VrP" secondAttribute="leading" constant="12" id="VCI-kh-tDl"/>
+                                    <constraint firstAttribute="width" constant="195" id="XVd-x7-TDW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="195" id="2vE-kU-ODd"/>
+                        </constraints>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.0 Km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hR-3y-sWk">
+                        <rect key="frame" x="195" y="0.0" width="125" height="130"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="130" id="5GT-jC-3sr"/>
+                            <constraint firstAttribute="width" constant="125" id="v8c-JH-T4N"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="35"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pc3-Fq-wTl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="9bf-xd-VJD"/>
+                    <constraint firstItem="pc3-Fq-wTl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Gpp-Kw-VUx"/>
+                    <constraint firstItem="7hR-3y-sWk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Uvy-dM-ZOa"/>
+                    <constraint firstAttribute="bottom" secondItem="pc3-Fq-wTl" secondAttribute="bottom" id="luT-oq-ZVF"/>
+                    <constraint firstAttribute="trailing" secondItem="7hR-3y-sWk" secondAttribute="trailing" id="ofx-z5-yZM"/>
+                    <constraint firstAttribute="bottom" secondItem="7hR-3y-sWk" secondAttribute="bottom" id="xOr-PW-bjI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="distanceLabel" destination="7hR-3y-sWk" id="LTI-Ym-n36"/>
+                <outlet property="timeLabel" destination="paN-4d-ON4" id="HdA-W9-3dC"/>
+                <outlet property="tripLabel" destination="NIW-h4-1nz" id="8EY-hk-uKa"/>
+            </connections>
+            <point key="canvasLocation" x="138.93129770992365" y="20.422535211267608"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
