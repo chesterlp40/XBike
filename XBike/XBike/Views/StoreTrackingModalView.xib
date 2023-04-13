@@ -15,12 +15,109 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="haC-Ly-wsn">
-                    <rect key="frame" x="32" y="276" width="329" height="300"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="haC-Ly-wsn" customClass="CustomStyleView" customModule="XBike" customModuleProvider="target">
+                    <rect key="frame" x="32" y="301" width="329" height="250"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your time was" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRN-fs-h89">
+                            <rect key="frame" x="0.0" y="8" width="329" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="wEX-9z-hlU"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Etw-80-qh2">
+                            <rect key="frame" x="0.0" y="98" width="329" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="6ED-Rb-NSl"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.45 Km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltw-h1-xai">
+                            <rect key="frame" x="0.0" y="143" width="329" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="YdI-Kv-smE"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="KohinoorTelugu-Regular" family="Kohinoor Telugu" pointSize="23"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GtR-y5-BIu">
+                            <rect key="frame" x="0.0" y="53" width="329" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="fsB-2r-6t9"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="KohinoorTelugu-Regular" family="Kohinoor Telugu" pointSize="23"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTX-wO-FbN">
+                            <rect key="frame" x="0.0" y="203" width="160" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="47" id="6s4-T4-5eH"/>
+                                <constraint firstAttribute="width" constant="160" id="Gjp-Mw-IOH"/>
+                            </constraints>
+                            <color key="tintColor" red="1" green="0.55720365049999998" blue="0.14345479010000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="STORE">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="KohinoorTelugu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </buttonConfiguration>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4em-ld-Rvh">
+                            <rect key="frame" x="174" y="203" width="155" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="47" id="CHI-Pa-aHf"/>
+                                <constraint firstAttribute="width" constant="155" id="ZKG-GP-65H"/>
+                            </constraints>
+                            <color key="tintColor" red="1" green="0.55720365049999998" blue="0.14345479010000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="DELETE">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="KohinoorTelugu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="300" id="T7U-4V-3C6"/>
+                        <constraint firstAttribute="trailing" secondItem="ltw-h1-xai" secondAttribute="trailing" id="1Nh-Cn-x07"/>
+                        <constraint firstItem="Etw-80-qh2" firstAttribute="leading" secondItem="haC-Ly-wsn" secondAttribute="leading" id="5RA-Ov-VhK"/>
+                        <constraint firstAttribute="trailing" secondItem="GtR-y5-BIu" secondAttribute="trailing" id="70w-Yt-8LT"/>
+                        <constraint firstAttribute="bottom" secondItem="4em-ld-Rvh" secondAttribute="bottom" id="CP4-V5-EmM"/>
+                        <constraint firstItem="aRN-fs-h89" firstAttribute="leading" secondItem="haC-Ly-wsn" secondAttribute="leading" id="IXB-Ue-ER5"/>
+                        <constraint firstAttribute="bottom" secondItem="uTX-wO-FbN" secondAttribute="bottom" id="Mvl-bE-jFS"/>
+                        <constraint firstAttribute="trailing" secondItem="4em-ld-Rvh" secondAttribute="trailing" id="OLg-tH-IBT"/>
+                        <constraint firstItem="uTX-wO-FbN" firstAttribute="leading" secondItem="haC-Ly-wsn" secondAttribute="leading" id="PEL-vk-d5r"/>
+                        <constraint firstItem="ltw-h1-xai" firstAttribute="leading" secondItem="haC-Ly-wsn" secondAttribute="leading" id="Puw-wt-KBy"/>
+                        <constraint firstAttribute="height" constant="250" id="T7U-4V-3C6"/>
+                        <constraint firstItem="Etw-80-qh2" firstAttribute="top" secondItem="GtR-y5-BIu" secondAttribute="bottom" id="YLL-0k-9fH"/>
+                        <constraint firstItem="GtR-y5-BIu" firstAttribute="top" secondItem="aRN-fs-h89" secondAttribute="bottom" id="dHl-aH-15Q"/>
+                        <constraint firstItem="aRN-fs-h89" firstAttribute="top" secondItem="haC-Ly-wsn" secondAttribute="top" constant="8" id="fti-Y3-et0"/>
+                        <constraint firstItem="GtR-y5-BIu" firstAttribute="leading" secondItem="haC-Ly-wsn" secondAttribute="leading" id="k2r-yj-1WT"/>
+                        <constraint firstItem="ltw-h1-xai" firstAttribute="top" secondItem="Etw-80-qh2" secondAttribute="bottom" id="sZh-gh-nTh"/>
+                        <constraint firstAttribute="trailing" secondItem="aRN-fs-h89" secondAttribute="trailing" id="wia-br-Aeb"/>
+                        <constraint firstAttribute="trailing" secondItem="Etw-80-qh2" secondAttribute="trailing" id="yKm-bM-DHX"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -31,7 +128,7 @@
                 <constraint firstItem="haC-Ly-wsn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MD3-SK-tVa"/>
                 <constraint firstItem="haC-Ly-wsn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="ub4-zS-pg1"/>
             </constraints>
-            <point key="canvasLocation" x="140" y="21"/>
+            <point key="canvasLocation" x="139.69465648854961" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
