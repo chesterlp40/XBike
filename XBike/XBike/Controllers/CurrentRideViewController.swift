@@ -13,10 +13,13 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
     
+    private var context = CoreDataManager.sharedInstance.persistentContainer.viewContext
+    
     private(set) var modal: RideTrackingModalView?
     private(set) var lastLocation: CLLocation?
     private(set) var timer: Timer?
     private(set) var timesUp = 0
+    private(set) var totalTime = ""
     private(set) var isTracking = false
     private(set) var distancePath: Double = 0
     private(set) var streetStart = ""
@@ -112,14 +115,30 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
                 }
                 self.streetFinish = street
             }
+            self.totalTime = modal.timeLabel.text!
             self.timer?.invalidate()
             self.timesUp = 0
             self.isTracking = false
             self.locationManager.stopUpdatingLocation()
-            self.polyline.map = nil
+            self.path.removeAllCoordinates()
+            self.saveData()
         } else {
             modal.removeFromSuperview()
         }
+    }
+    
+    private func saveData() {
+        let trackingModel = TrackingModel(
+            context: self.context
+        )
+        trackingModel.time = self.totalTime
+        trackingModel.streetStart = !self.streetStart.isEmpty ? self.streetStart : "Unknown"
+        trackingModel.streetFinish = !self.streetFinish.isEmpty ? self.streetFinish : "Unknown"
+        let kmDistance = self.distancePath / 1000
+        let prettyDistance = String(format: "%.2f km", kmDistance)
+        trackingModel.distance = prettyDistance
+        
+        try? self.context.save()
     }
     
     func updateLabel(
@@ -154,7 +173,7 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
             if self.isTracking {
                 self.path.add(location.coordinate)
                 self.polyline.path = self.path
-                self.polyline.strokeColor = .blue
+                self.polyline.strokeColor = .orange
                 self.polyline.strokeWidth = 5
                 self.polyline.map = self.mapView
                 
