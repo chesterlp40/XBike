@@ -22,6 +22,7 @@
 		864535EA29E7C7FD00D796C0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864535E929E7C7FD00D796C0 /* CoreDataManager.swift */; };
 		864535EC29E835F900D796C0 /* StoreTrackingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864535EB29E835F900D796C0 /* StoreTrackingModalView.swift */; };
 		864535EE29E8364D00D796C0 /* StoreTrackingModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 864535ED29E8364D00D796C0 /* StoreTrackingModalView.xib */; };
+		864535F129E8582900D796C0 /* TrackingDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864535F029E8582900D796C0 /* TrackingDataViewModel.swift */; };
 		864B0EE529E7BD940041AF1A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864B0EE429E7BD930041AF1A /* CoreData.framework */; };
 		865D620329E4F11600C622EC /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865D620129E4F11600C622EC /* PageViewController.swift */; };
 		865D620429E4F11600C622EC /* PageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 865D620229E4F11600C622EC /* PageViewController.xib */; };
@@ -52,6 +53,7 @@
 		864535E929E7C7FD00D796C0 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		864535EB29E835F900D796C0 /* StoreTrackingModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTrackingModalView.swift; sourceTree = "<group>"; };
 		864535ED29E8364D00D796C0 /* StoreTrackingModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreTrackingModalView.xib; sourceTree = "<group>"; };
+		864535F029E8582900D796C0 /* TrackingDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingDataViewModel.swift; sourceTree = "<group>"; };
 		864B0EE429E7BD930041AF1A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		865D620129E4F11600C622EC /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		865D620229E4F11600C622EC /* PageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageViewController.xib; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		8624FCC629E4BB7300443169 /* XBike */ = {
 			isa = PBXGroup;
 			children = (
+				864535EF29E857FC00D796C0 /* ViewModel */,
 				864535E329E7C46D00D796C0 /* Model */,
 				86115CA229E778D800829918 /* Companion */,
 				8624FCDB29E4BBF500443169 /* App */,
@@ -183,6 +186,14 @@
 				864535E929E7C7FD00D796C0 /* CoreDataManager.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		864535EF29E857FC00D796C0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				864535F029E8582900D796C0 /* TrackingDataViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C2B3E1AB63A7C7E5D1FC7CC9 /* Frameworks */ = {
@@ -329,6 +340,7 @@
 				86115C9F29E760C000829918 /* RideTrackingModalView.swift in Sources */,
 				864535EA29E7C7FD00D796C0 /* CoreDataManager.swift in Sources */,
 				86115CA429E7790600829918 /* CustomStyleView.swift in Sources */,
+				864535F129E8582900D796C0 /* TrackingDataViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
