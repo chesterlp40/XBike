@@ -47,7 +47,7 @@
                     </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjT-jb-Q4b">
-                    <rect key="frame" x="16" y="738" width="361" height="48"/>
+                    <rect key="frame" x="16" y="725" width="361" height="48"/>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="wvu-lM-H3J"/>
@@ -69,7 +69,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AjT-jb-Q4b" secondAttribute="trailing" constant="16" id="6aU-cC-3kj"/>
                 <constraint firstItem="RHJ-GE-tOi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Gmp-OG-UtG"/>
                 <constraint firstItem="RHJ-GE-tOi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="56" id="Put-HX-eBu"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="AjT-jb-Q4b" secondAttribute="bottom" constant="32" id="gQA-TT-5La"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="AjT-jb-Q4b" secondAttribute="bottom" constant="45" id="gQA-TT-5La"/>
                 <constraint firstItem="AjT-jb-Q4b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="kuh-Wi-1uJ"/>
                 <constraint firstItem="RHJ-GE-tOi" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="yhK-46-Rfy"/>
             </constraints>

@@ -10,6 +10,9 @@
 		2A55EC2CD8BB511524A6BDED /* Pods_XBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB549D0C235CB88BC662E60C /* Pods_XBike.framework */; };
 		86115C9C29E66D5F00829918 /* RideTimesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86115C9A29E66D5F00829918 /* RideTimesCell.swift */; };
 		86115C9D29E66D5F00829918 /* RideTimesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86115C9B29E66D5F00829918 /* RideTimesCell.xib */; };
+		86115C9F29E760C000829918 /* RideTrackingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86115C9E29E760C000829918 /* RideTrackingModalView.swift */; };
+		86115CA129E760D100829918 /* RideTrackingModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86115CA029E760D100829918 /* RideTrackingModalView.xib */; };
+		86115CA429E7790600829918 /* CustomStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86115CA329E7790600829918 /* CustomStyleView.swift */; };
 		8624FCC829E4BB7300443169 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8624FCC729E4BB7300443169 /* AppDelegate.swift */; };
 		8624FCCA29E4BB7300443169 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8624FCC929E4BB7300443169 /* SceneDelegate.swift */; };
 		8624FCD129E4BB7400443169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8624FCD029E4BB7400443169 /* Assets.xcassets */; };
@@ -29,6 +32,9 @@
 		277361F2E77253A9C93D3AF8 /* Pods-XBike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBike.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-XBike/Pods-XBike.debug.xcconfig"; sourceTree = "<group>"; };
 		86115C9A29E66D5F00829918 /* RideTimesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideTimesCell.swift; sourceTree = "<group>"; };
 		86115C9B29E66D5F00829918 /* RideTimesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RideTimesCell.xib; sourceTree = "<group>"; };
+		86115C9E29E760C000829918 /* RideTrackingModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideTrackingModalView.swift; sourceTree = "<group>"; };
+		86115CA029E760D100829918 /* RideTrackingModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RideTrackingModalView.xib; sourceTree = "<group>"; };
+		86115CA329E7790600829918 /* CustomStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStyleView.swift; sourceTree = "<group>"; };
 		8624FCC429E4BB7300443169 /* XBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8624FCC729E4BB7300443169 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8624FCC929E4BB7300443169 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +75,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		86115CA229E778D800829918 /* Companion */ = {
+			isa = PBXGroup;
+			children = (
+				86115CA329E7790600829918 /* CustomStyleView.swift */,
+			);
+			path = Companion;
+			sourceTree = "<group>";
+		};
 		8624FCBB29E4BB7300443169 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +104,7 @@
 		8624FCC629E4BB7300443169 /* XBike */ = {
 			isa = PBXGroup;
 			children = (
+				86115CA229E778D800829918 /* Companion */,
 				8624FCDB29E4BBF500443169 /* App */,
 				8624FCDE29E4BC2900443169 /* Controllers */,
 				8624FCDD29E4BC1D00443169 /* Views */,
@@ -124,6 +139,7 @@
 				866FE1C629E5233F006C3673 /* CurrentRideViewController.xib */,
 				865D620229E4F11600C622EC /* PageViewController.xib */,
 				8624FCD229E4BB7400443169 /* LaunchScreen.storyboard */,
+				86115CA029E760D100829918 /* RideTrackingModalView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -138,6 +154,7 @@
 				866FE1CD29E62863006C3673 /* MainViewController.swift */,
 				866FE1CF29E6353A006C3673 /* BaseViewController.swift */,
 				86115C9A29E66D5F00829918 /* RideTimesCell.swift */,
+				86115C9E29E760C000829918 /* RideTrackingModalView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -215,6 +232,7 @@
 				86115C9D29E66D5F00829918 /* RideTimesCell.xib in Resources */,
 				865D620429E4F11600C622EC /* PageViewController.xib in Resources */,
 				8624FCD429E4BB7400443169 /* LaunchScreen.storyboard in Resources */,
+				86115CA129E760D100829918 /* RideTrackingModalView.xib in Resources */,
 				8624FCD129E4BB7400443169 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +295,8 @@
 				866FE1D029E6353A006C3673 /* BaseViewController.swift in Sources */,
 				8624FCCA29E4BB7300443169 /* SceneDelegate.swift in Sources */,
 				865D620329E4F11600C622EC /* PageViewController.swift in Sources */,
+				86115C9F29E760C000829918 /* RideTrackingModalView.swift in Sources */,
+				86115CA429E7790600829918 /* CustomStyleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
