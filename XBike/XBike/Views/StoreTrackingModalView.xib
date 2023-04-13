@@ -13,7 +13,10 @@
             <connections>
                 <outlet property="deleteButton" destination="4em-ld-Rvh" id="JRg-eN-HT2"/>
                 <outlet property="distanceLabel" destination="ltw-h1-xai" id="pKH-rj-s0l"/>
+                <outlet property="infoView" destination="haC-Ly-wsn" id="Jhh-Ib-d9K"/>
+                <outlet property="okButton" destination="ajz-JY-uKu" id="Tfs-uO-mWM"/>
                 <outlet property="storeButton" destination="uTX-wO-FbN" id="SIQ-7z-IBk"/>
+                <outlet property="storedView" destination="7sg-Gv-MxH" id="VaS-8d-0of"/>
                 <outlet property="timeLabel" destination="GtR-y5-BIu" id="xyp-j1-yyM"/>
             </connections>
         </placeholder>
@@ -25,7 +28,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwD-1m-LCy" customClass="CustomStyleView" customModule="XBike" customModuleProvider="target">
                     <rect key="frame" x="32" y="301" width="329" height="250"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="haC-Ly-wsn" userLabel="InfoView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="haC-Ly-wsn" userLabel="InfoView" customClass="CustomStyleView" customModule="XBike" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="329" height="250"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your time was" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRN-fs-h89">
@@ -128,13 +131,64 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7sg-Gv-MxH" userLabel="StoredView" customClass="CustomStyleView" customModule="XBike" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="329" height="250"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajz-JY-uKu">
+                                    <rect key="frame" x="0.0" y="203" width="329" height="47"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="47" id="LRd-WM-GCJ"/>
+                                    </constraints>
+                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain">
+                                        <attributedString key="attributedTitle">
+                                            <fragment content="OK">
+                                                <attributes>
+                                                    <font key="NSFont" size="18" name="KohinoorTelugu-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                    </buttonConfiguration>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your progress has been correctly stored!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJ7-5S-vl3">
+                                    <rect key="frame" x="0.0" y="75" width="329" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="pkG-Ng-eky"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="mJ7-5S-vl3" firstAttribute="centerY" secondItem="7sg-Gv-MxH" secondAttribute="centerY" id="Gn2-eD-rub"/>
+                                <constraint firstItem="mJ7-5S-vl3" firstAttribute="leading" secondItem="7sg-Gv-MxH" secondAttribute="leading" id="Kor-No-gWl"/>
+                                <constraint firstAttribute="trailing" secondItem="mJ7-5S-vl3" secondAttribute="trailing" id="TWx-8g-3kR"/>
+                                <constraint firstAttribute="bottom" secondItem="ajz-JY-uKu" secondAttribute="bottom" id="mOv-8r-fh5"/>
+                                <constraint firstItem="mJ7-5S-vl3" firstAttribute="centerX" secondItem="7sg-Gv-MxH" secondAttribute="centerX" id="qfv-y7-VRd"/>
+                                <constraint firstItem="ajz-JY-uKu" firstAttribute="leading" secondItem="7sg-Gv-MxH" secondAttribute="leading" id="wBS-9W-a72"/>
+                                <constraint firstAttribute="trailing" secondItem="ajz-JY-uKu" secondAttribute="trailing" id="xpg-XA-cm1"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="7sg-Gv-MxH" firstAttribute="leading" secondItem="VwD-1m-LCy" secondAttribute="leading" id="4nr-MQ-Dec"/>
                         <constraint firstItem="haC-Ly-wsn" firstAttribute="top" secondItem="VwD-1m-LCy" secondAttribute="top" id="96e-4g-AiB"/>
+                        <constraint firstAttribute="bottom" secondItem="7sg-Gv-MxH" secondAttribute="bottom" id="FUN-cY-cSV"/>
                         <constraint firstAttribute="bottom" secondItem="haC-Ly-wsn" secondAttribute="bottom" id="Jff-cR-jLE"/>
                         <constraint firstAttribute="trailing" secondItem="haC-Ly-wsn" secondAttribute="trailing" id="QEo-zN-glG"/>
+                        <constraint firstAttribute="trailing" secondItem="7sg-Gv-MxH" secondAttribute="trailing" id="aDQ-ni-mLX"/>
                         <constraint firstAttribute="height" constant="250" id="aMR-iD-CyT"/>
+                        <constraint firstItem="7sg-Gv-MxH" firstAttribute="top" secondItem="VwD-1m-LCy" secondAttribute="top" id="kgq-wo-KKx"/>
                         <constraint firstItem="haC-Ly-wsn" firstAttribute="leading" secondItem="VwD-1m-LCy" secondAttribute="leading" id="m1i-Ty-O9n"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>

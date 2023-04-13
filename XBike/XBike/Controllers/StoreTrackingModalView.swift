@@ -13,6 +13,9 @@ class StoreTrackingModalView: UIView {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var storeButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var okButton: UIButton!
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var storedView: UIView!
     
     required init?(
         coder: NSCoder

@@ -73,6 +73,8 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
         self.storeDataModal = StoreTrackingModalView(
             frame: self.view.frame
         )
+        self.storeDataModal?.infoView.isHidden = false
+        self.storeDataModal?.storedView.isHidden = true
         self.storeDataModal?.storeButton.addTarget(
             self,
             action: #selector(storeButtonPressed),
@@ -83,6 +85,11 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
             action: #selector(deleteButtonPressed),
             for: .touchUpInside
         )
+        self.storeDataModal?.okButton.addTarget(
+            self,
+            action: #selector(okButtonPressed),
+            for: .touchUpInside
+        )
     }
     
     @objc
@@ -90,6 +97,8 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
         guard let modal = self.trackingModal else {
             return
         }
+        self.storeDataModal?.infoView.isHidden = false
+        self.storeDataModal?.storedView.isHidden = true
         modal.timeLabel.text = "00 : 00 : 00"
         self.view.addSubview(modal)
     }
@@ -168,7 +177,8 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
         }
         self.saveData()
         self.polyline.map = nil
-        modal.removeFromSuperview()
+        self.storeDataModal?.infoView.isHidden = true
+        self.storeDataModal?.storedView.isHidden = false
     }
     
     @objc
@@ -179,6 +189,16 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
             return
         }
         self.polyline.map = nil
+        modal.removeFromSuperview()
+    }
+    
+    @objc
+    func okButtonPressed() {
+        guard
+            let modal = self.storeDataModal
+        else {
+            return
+        }
         modal.removeFromSuperview()
     }
     
