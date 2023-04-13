@@ -9,6 +9,11 @@ import UIKit
 
 class StoreTrackingModalView: UIView {
     
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var storeButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     required init?(
         coder: NSCoder
     ) {
