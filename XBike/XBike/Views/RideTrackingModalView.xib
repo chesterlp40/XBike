@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RideTrackingModalView" customModule="XBike" customModuleProvider="target">
+            <connections>
+                <outlet property="startButton" destination="hR2-D5-Mh4" id="z1i-SU-KCS"/>
+                <outlet property="stopButton" destination="P7u-o2-pD1" id="gDz-Fy-GsE"/>
+                <outlet property="timeLabel" destination="ghX-r5-YsC" id="jCC-lt-bCl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJi-gA-MyR" customClass="CustomStyleView" customModule="XBike" customModuleProvider="target">
+                    <rect key="frame" x="16" y="676" width="361" height="110"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghX-r5-YsC">
+                            <rect key="frame" x="0.0" y="0.0" width="361" height="55"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="55" id="UgZ-wI-IcN"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="35"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hR2-D5-Mh4">
+                            <rect key="frame" x="0.0" y="63" width="177" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="47" id="G9t-6F-nxr"/>
+                                <constraint firstAttribute="width" constant="177" id="jod-s5-Vfd"/>
+                            </constraints>
+                            <color key="tintColor" red="1" green="0.55720365049999998" blue="0.14345479010000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="START">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="KohinoorTelugu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </buttonConfiguration>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7u-o2-pD1">
+                            <rect key="frame" x="184" y="63" width="177" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="47" id="aCT-oY-igJ"/>
+                                <constraint firstAttribute="width" constant="177" id="ckf-XH-bK3"/>
+                            </constraints>
+                            <color key="tintColor" red="1" green="0.55720365049999998" blue="0.14345479010000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="STOP">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="KohinoorTelugu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="hR2-D5-Mh4" firstAttribute="leading" secondItem="JJi-gA-MyR" secondAttribute="leading" id="2tB-LM-59g"/>
+                        <constraint firstAttribute="bottom" secondItem="P7u-o2-pD1" secondAttribute="bottom" id="3Re-YL-VmS"/>
+                        <constraint firstAttribute="height" constant="110" id="Acz-zj-Eac"/>
+                        <constraint firstItem="ghX-r5-YsC" firstAttribute="top" secondItem="JJi-gA-MyR" secondAttribute="top" id="CEI-m1-K3I"/>
+                        <constraint firstItem="P7u-o2-pD1" firstAttribute="top" secondItem="ghX-r5-YsC" secondAttribute="bottom" constant="8" symbolic="YES" id="FfC-I9-k13"/>
+                        <constraint firstAttribute="bottom" secondItem="hR2-D5-Mh4" secondAttribute="bottom" id="FwI-4d-CoH"/>
+                        <constraint firstAttribute="trailing" secondItem="P7u-o2-pD1" secondAttribute="trailing" id="ItE-Ze-LzW"/>
+                        <constraint firstAttribute="trailing" secondItem="ghX-r5-YsC" secondAttribute="trailing" id="KZE-HJ-cx1"/>
+                        <constraint firstItem="hR2-D5-Mh4" firstAttribute="top" secondItem="ghX-r5-YsC" secondAttribute="bottom" constant="8" symbolic="YES" id="RpJ-wh-gVZ"/>
+                        <constraint firstItem="ghX-r5-YsC" firstAttribute="leading" secondItem="JJi-gA-MyR" secondAttribute="leading" id="XxM-rf-iw8"/>
+                        <constraint firstAttribute="bottom" secondItem="hR2-D5-Mh4" secondAttribute="bottom" id="eF9-CH-wBj"/>
+                        <constraint firstItem="hR2-D5-Mh4" firstAttribute="leading" secondItem="JJi-gA-MyR" secondAttribute="leading" id="hex-8O-TNw"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="JJi-gA-MyR" secondAttribute="trailing" constant="16" id="Ciz-ot-lvh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="JJi-gA-MyR" secondAttribute="bottom" constant="32" id="Hlv-0v-YxJ"/>
+                <constraint firstItem="JJi-gA-MyR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="eJD-LC-U7c"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="8"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="136.64122137404578" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
