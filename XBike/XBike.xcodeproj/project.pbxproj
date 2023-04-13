@@ -20,6 +20,8 @@
 		864535E629E7C48900D796C0 /* TrackingDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 864535E429E7C48900D796C0 /* TrackingDataModel.xcdatamodeld */; };
 		864535E829E7C4FB00D796C0 /* TrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864535E729E7C4FB00D796C0 /* TrackingModel.swift */; };
 		864535EA29E7C7FD00D796C0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864535E929E7C7FD00D796C0 /* CoreDataManager.swift */; };
+		864535EC29E835F900D796C0 /* StoreTrackingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864535EB29E835F900D796C0 /* StoreTrackingModalView.swift */; };
+		864535EE29E8364D00D796C0 /* StoreTrackingModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 864535ED29E8364D00D796C0 /* StoreTrackingModalView.xib */; };
 		864B0EE529E7BD940041AF1A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864B0EE429E7BD930041AF1A /* CoreData.framework */; };
 		865D620329E4F11600C622EC /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865D620129E4F11600C622EC /* PageViewController.swift */; };
 		865D620429E4F11600C622EC /* PageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 865D620229E4F11600C622EC /* PageViewController.xib */; };
@@ -48,6 +50,8 @@
 		864535E529E7C48900D796C0 /* TrackingDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrackingDataModel.xcdatamodel; sourceTree = "<group>"; };
 		864535E729E7C4FB00D796C0 /* TrackingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModel.swift; sourceTree = "<group>"; };
 		864535E929E7C7FD00D796C0 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		864535EB29E835F900D796C0 /* StoreTrackingModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTrackingModalView.swift; sourceTree = "<group>"; };
+		864535ED29E8364D00D796C0 /* StoreTrackingModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreTrackingModalView.xib; sourceTree = "<group>"; };
 		864B0EE429E7BD930041AF1A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		865D620129E4F11600C622EC /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		865D620229E4F11600C622EC /* PageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageViewController.xib; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				865D620229E4F11600C622EC /* PageViewController.xib */,
 				8624FCD229E4BB7400443169 /* LaunchScreen.storyboard */,
 				86115CA029E760D100829918 /* RideTrackingModalView.xib */,
+				864535ED29E8364D00D796C0 /* StoreTrackingModalView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 				866FE1CF29E6353A006C3673 /* BaseViewController.swift */,
 				86115C9A29E66D5F00829918 /* RideTimesCell.swift */,
 				86115C9E29E760C000829918 /* RideTrackingModalView.swift */,
+				864535EB29E835F900D796C0 /* StoreTrackingModalView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -251,6 +257,7 @@
 				866FE1CC29E52371006C3673 /* MyProgressViewController.xib in Resources */,
 				866FE1C829E5233F006C3673 /* CurrentRideViewController.xib in Resources */,
 				86115C9D29E66D5F00829918 /* RideTimesCell.xib in Resources */,
+				864535EE29E8364D00D796C0 /* StoreTrackingModalView.xib in Resources */,
 				865D620429E4F11600C622EC /* PageViewController.xib in Resources */,
 				8624FCD429E4BB7400443169 /* LaunchScreen.storyboard in Resources */,
 				86115CA129E760D100829918 /* RideTrackingModalView.xib in Resources */,
@@ -308,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				866FE1CE29E62863006C3673 /* MainViewController.swift in Sources */,
+				864535EC29E835F900D796C0 /* StoreTrackingModalView.swift in Sources */,
 				866FE1C729E5233F006C3673 /* CurrentRideViewController.swift in Sources */,
 				86115C9C29E66D5F00829918 /* RideTimesCell.swift in Sources */,
 				866FE1CB29E52371006C3673 /* MyProgressViewController.swift in Sources */,
