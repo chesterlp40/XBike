@@ -14,7 +14,9 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: GMSMapView!
     
     private(set) var modal: RideTrackingModalView?
+    private(set) var timer: Timer?
     private(set) var locationManager = CLLocationManager()
+    private(set) var timesUp = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,15 +56,37 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
         guard let modal = self.modal else {
             return
         }
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+            self.timesUp += 1
+            self.updateLabel(modal.timeLabel)
+        }
     }
     
     @objc
     func stopButtonPressed() {
-        guard let modal = self.modal else {
+        guard
+            let modal = self.modal
+        else {
             return
         }
-        modal.removeFromSuperview()
+        if let timer = self.timer, timer.isValid {
+            timer.invalidate()
+        } else {
+            modal.removeFromSuperview()
+        }
     }
+    
+    func updateLabel(
+        _ label: UILabel
+    ) {
+        let minutes = self.timesUp / 6000
+        let seconds = (self.timesUp % 6000) / 100
+        let hundredths = self.timesUp % 100
+        label.text = String(
+            format: "%02d : %02d : %02d", minutes, seconds, hundredths
+        )
+    }
+
     
     func locationManagerDidChangeAuthorization(
         _ manager: CLLocationManager
