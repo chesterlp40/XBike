@@ -17,16 +17,24 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
     private(set) var timer: Timer?
     private(set) var locationManager = CLLocationManager()
     private(set) var timesUp = 0
+    private(set) var isTracking = false
+    private(set) var path = GMSMutablePath()
+    private(set) var polyline = GMSPolyline()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Current Ride"
-        
-        self.locationManager.delegate = self
         self.setupComponents()
     }
     
     private func setupComponents() {
+        self.locationManager.delegate = self
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        self.setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
         self.modal = RideTrackingModalView(
             frame: self.view.frame
         )
@@ -46,6 +54,7 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
         guard let modal = self.modal else {
             return
         }
+        modal.timeLabel.text = "00 : 00 : 00"
         modal.startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
         modal.stopButton.addTarget(self, action: #selector(stopButtonPressed), for: .touchUpInside)
         self.view.addSubview(modal)
@@ -56,9 +65,14 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
         guard let modal = self.modal else {
             return
         }
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-            self.timesUp += 1
-            self.updateLabel(modal.timeLabel)
+        if !self.isTracking {
+            self.locationManager.startUpdatingLocation()
+            self.polyline.map = self.mapView
+            self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+                self.timesUp += 1
+                self.updateLabel(modal.timeLabel)
+            }
+            self.isTracking = true
         }
     }
     
@@ -69,8 +83,12 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
         else {
             return
         }
-        if let timer = self.timer, timer.isValid {
-            timer.invalidate()
+        if isTracking {
+            self.timer?.invalidate()
+            self.timesUp = 0
+            self.isTracking = false
+            self.locationManager.stopUpdatingLocation()
+            self.polyline.map = nil
         } else {
             modal.removeFromSuperview()
         }
@@ -87,51 +105,26 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
         )
     }
 
-    
-    func locationManagerDidChangeAuthorization(
-        _ manager: CLLocationManager
-    ) {
-        switch manager.authorizationStatus {
-        case .authorizedAlways:
-            self.locationManager.requestLocation()
-        case .authorizedWhenInUse:
-            self.locationManager.requestLocation()
-        case .denied:
-            return
-        case .notDetermined:
-            self.locationManager.requestWhenInUseAuthorization()
-        case .restricted:
-            self.locationManager.requestWhenInUseAuthorization()
-        default:
-            self.locationManager.requestWhenInUseAuthorization()
-        }
-    }
-    
     func locationManager(
         _ manager: CLLocationManager,
         didUpdateLocations locations: [CLLocation]
     ) {
-        let coordenates = CLLocationCoordinate2D(
-            latitude: self.locationManager.location?.coordinate.latitude ?? 0.0,
-            longitude: self.locationManager.location?.coordinate.longitude ?? 0.0
-        )
-        self.mapView.camera = GMSCameraPosition(
-            target: coordenates,
-            zoom: 8,
-            bearing: 0,
-            viewingAngle: 0
-        )
-        let marker = GMSMarker()
-        marker.position = coordenates
-        marker.title = "Hey Hi!"
-        marker.snippet = "I'm here"
-        marker.map = mapView
-    }
-    
-    func locationManager(
-        _ manager: CLLocationManager,
-        didFailWithError error: Error
-    ) {
-        print(error)
+        if let location = locations.last {
+            let camera = GMSCameraPosition.camera(
+                withTarget: location.coordinate,
+                zoom: 15
+            )
+            self.mapView.camera = camera
+            self.mapView.settings.myLocationButton = true
+            self.mapView.isMyLocationEnabled = true
+            self.mapView.animate(to: camera)
+            if self.isTracking {
+                self.path.add(location.coordinate)
+                self.polyline.path = self.path
+                self.polyline.strokeColor = .blue
+                self.polyline.strokeWidth = 5
+                self.polyline.map = self.mapView
+            }
+        }
     }
 }
