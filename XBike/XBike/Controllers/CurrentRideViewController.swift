@@ -15,7 +15,8 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
     
     private var context = CoreDataManager.sharedInstance.persistentContainer.viewContext
     
-    private(set) var modal: RideTrackingModalView?
+    private(set) var trackingModal: RideTrackingModalView?
+    private(set) var storeDataModal: StoreTrackingModalView?
     private(set) var lastLocation: CLLocation?
     private(set) var timer: Timer?
     private(set) var timesUp = 0
@@ -40,12 +41,10 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         self.setupNavigationBar()
+        self.setupModals()
     }
     
     private func setupNavigationBar() {
-        self.modal = RideTrackingModalView(
-            frame: self.view.frame
-        )
         let image = UIImage(systemName: "plus")
         let rightBarbutton = UIBarButtonItem(
             image: image,
@@ -57,21 +56,57 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
         self.navigationItem.rightBarButtonItem = rightBarbutton
     }
     
+    private func setupModals() {
+        self.trackingModal = RideTrackingModalView(
+            frame: self.view.frame
+        )
+        self.trackingModal?.startButton.addTarget(
+            self,
+            action: #selector(startButtonPressed),
+            for: .touchUpInside
+        )
+        self.trackingModal?.stopButton.addTarget(
+            self, action:
+            #selector(stopButtonPressed),
+            for: .touchUpInside
+        )
+        self.storeDataModal = StoreTrackingModalView(
+            frame: self.view.frame
+        )
+        self.storeDataModal?.infoView.isHidden = false
+        self.storeDataModal?.storedView.isHidden = true
+        self.storeDataModal?.storeButton.addTarget(
+            self,
+            action: #selector(storeButtonPressed),
+            for: .touchUpInside
+        )
+        self.storeDataModal?.deleteButton.addTarget(
+            self,
+            action: #selector(deleteButtonPressed),
+            for: .touchUpInside
+        )
+        self.storeDataModal?.okButton.addTarget(
+            self,
+            action: #selector(okButtonPressed),
+            for: .touchUpInside
+        )
+    }
+    
     @objc
     func onTrackPressed() {
-        guard let modal = self.modal else {
+        guard let modal = self.trackingModal else {
             return
         }
+        self.storeDataModal?.infoView.isHidden = false
+        self.storeDataModal?.storedView.isHidden = true
         modal.timeLabel.text = "00 : 00 : 00"
-        modal.startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
-        modal.stopButton.addTarget(self, action: #selector(stopButtonPressed), for: .touchUpInside)
         self.view.addSubview(modal)
     }
     
     @objc
     func startButtonPressed() {
         guard
-            let modal = self.modal,
+            let modal = self.trackingModal,
             let location = self.mapView.myLocation
         else {
             return
@@ -100,12 +135,15 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
     @objc
     func stopButtonPressed() {
         guard
-            let modal = self.modal,
+            let modal = self.trackingModal,
             let location = self.mapView.myLocation
         else {
             return
         }
-        if isTracking {
+        if
+            let mainModal = self.storeDataModal,
+            self.isTracking
+        {
             self.geocoder.reverseGeocodeCoordinate(location.coordinate) { response, error in
                 guard
                     let address = response?.firstResult(),
@@ -121,10 +159,47 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
             self.isTracking = false
             self.locationManager.stopUpdatingLocation()
             self.path.removeAllCoordinates()
-            self.saveData()
-        } else {
-            modal.removeFromSuperview()
+            mainModal.timeLabel.text = self.totalTime
+            let kmDistance = self.distancePath / 1000
+            let prettyDistance = String(format: "%.2f km", kmDistance)
+            mainModal.distanceLabel.text = prettyDistance
+            self.view.addSubview(mainModal)
         }
+        modal.removeFromSuperview()
+    }
+    
+    @objc
+    func storeButtonPressed() {
+        guard
+            let modal = self.storeDataModal
+        else {
+            return
+        }
+        self.saveData()
+        self.polyline.map = nil
+        self.storeDataModal?.infoView.isHidden = true
+        self.storeDataModal?.storedView.isHidden = false
+    }
+    
+    @objc
+    func deleteButtonPressed() {
+        guard
+            let modal = self.storeDataModal
+        else {
+            return
+        }
+        self.polyline.map = nil
+        modal.removeFromSuperview()
+    }
+    
+    @objc
+    func okButtonPressed() {
+        guard
+            let modal = self.storeDataModal
+        else {
+            return
+        }
+        modal.removeFromSuperview()
     }
     
     private func saveData() {
