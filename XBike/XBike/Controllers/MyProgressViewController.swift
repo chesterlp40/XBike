@@ -5,21 +5,47 @@
 //  Created by Ezequiel Rasgido on 11/04/2023.
 //
 
+import CoreData
 import UIKit
 
 class MyProgressViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    private var context = CoreDataManager.sharedInstance.persistentContainer.viewContext
+    internal var trackingData: [TrackingModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "My Progress"
+        self.setupComponents()
+        self.fetchInfo()
+    }
+    
+    override func viewWillAppear(
+        _ animated: Bool
+    ) {
+        self.fetchInfo()
+    }
+    
+    private func setupComponents() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.register(
             UINib(nibName: "RideTimesCell", bundle: nil),
             forCellReuseIdentifier: "RideTimesCell"
         )
+    }
+    
+    internal func fetchInfo() {
+        let request: NSFetchRequest<TrackingModel> = NSFetchRequest(
+            entityName: "TrackingModel"
+        )
+        do {
+            self.trackingData = try self.context.fetch(request)
+        } catch {
+            print(error)
+        }
     }
 }
 
@@ -29,7 +55,7 @@ extension MyProgressViewController: UITableViewDelegate, UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return 8
+        return self.trackingData.count
     }
     
     func tableView(
@@ -37,9 +63,11 @@ extension MyProgressViewController: UITableViewDelegate, UITableViewDataSource {
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "RideTimesCell", for: indexPath) as? RideTimesCell
-        cell?.timeLabel?.text = "10 : 34 : 12"
-        cell?.tripLabel.text = "A: Suipacha 3544\nB: Luis Garcia 1355"
-        cell?.distanceLabel.text = "34.3 Km"
+        cell?.timeLabel?.text = self.trackingData[indexPath.row].time
+        let streetStart = self.trackingData[indexPath.row].streetStart
+        let streetFinish = self.trackingData[indexPath.row].streetFinish
+        cell?.tripLabel.text = "A: \(streetStart ?? "Unknown")\nB: \(streetFinish ?? "Unknown")"
+        cell?.distanceLabel.text = self.trackingData[indexPath.row].distance
         return cell!
     }
 }
