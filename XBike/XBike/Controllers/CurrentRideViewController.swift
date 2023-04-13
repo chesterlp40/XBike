@@ -14,12 +14,17 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: GMSMapView!
     
     private(set) var modal: RideTrackingModalView?
+    private(set) var lastLocation: CLLocation?
     private(set) var timer: Timer?
-    private(set) var locationManager = CLLocationManager()
     private(set) var timesUp = 0
     private(set) var isTracking = false
-    private(set) var path = GMSMutablePath()
-    private(set) var polyline = GMSPolyline()
+    private(set) var distancePath: Double = 0
+    private(set) var streetStart = ""
+    private(set) var streetFinish = ""
+    private let locationManager = CLLocationManager()
+    private let path = GMSMutablePath()
+    private let polyline = GMSPolyline()
+    private let geocoder = GMSGeocoder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,13 +67,26 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
     
     @objc
     func startButtonPressed() {
-        guard let modal = self.modal else {
+        guard
+            let modal = self.modal,
+            let location = self.mapView.myLocation
+        else {
             return
         }
         if !self.isTracking {
+            self.lastLocation = location
+            self.geocoder.reverseGeocodeCoordinate(location.coordinate) { response, error in
+                guard
+                    let address = response?.firstResult(),
+                    let street = address.thoroughfare
+                else {
+                    return
+                }
+                self.streetStart = street
+            }
             self.locationManager.startUpdatingLocation()
             self.polyline.map = self.mapView
-            self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+            self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
                 self.timesUp += 1
                 self.updateLabel(modal.timeLabel)
             }
@@ -79,11 +97,21 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
     @objc
     func stopButtonPressed() {
         guard
-            let modal = self.modal
+            let modal = self.modal,
+            let location = self.mapView.myLocation
         else {
             return
         }
         if isTracking {
+            self.geocoder.reverseGeocodeCoordinate(location.coordinate) { response, error in
+                guard
+                    let address = response?.firstResult(),
+                    let street = address.thoroughfare
+                else {
+                    return
+                }
+                self.streetFinish = street
+            }
             self.timer?.invalidate()
             self.timesUp = 0
             self.isTracking = false
@@ -100,9 +128,14 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
         let minutes = self.timesUp / 6000
         let seconds = (self.timesUp % 6000) / 100
         let hundredths = self.timesUp % 100
-        label.text = String(
-            format: "%02d : %02d : %02d", minutes, seconds, hundredths
-        )
+        DispatchQueue.main.async {
+            label.text = String(
+                format: "%02d : %02d : %02d",
+                minutes,
+                seconds,
+                hundredths
+            )
+        }
     }
 
     func locationManager(
@@ -124,6 +157,15 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
                 self.polyline.strokeColor = .blue
                 self.polyline.strokeWidth = 5
                 self.polyline.map = self.mapView
+                
+                if self.lastLocation == nil {
+                    self.lastLocation = location
+                }
+                
+                let distance = location.distance(
+                    from: self.lastLocation!
+                )
+                self.distancePath += distance
             }
         }
     }

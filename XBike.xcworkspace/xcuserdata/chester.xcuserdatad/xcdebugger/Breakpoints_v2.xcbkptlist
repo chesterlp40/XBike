@@ -3,4 +3,162 @@
    uuid = "C604CC46-6B1A-4332-8D66-256FBABE3C2A"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F6FA0D8-E8C2-4EBA-BD9A-E3DE97869AFF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XBike/XBike/Controllers/CurrentRideViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "startButtonPressed()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0F6FA0D8-E8C2-4EBA-BD9A-E3DE97869AFF - 66936621a7381268"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "XBike.CurrentRideViewController.startButtonPressed() -&gt; ()"
+                  moduleName = "XBike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chester/Desktop/Repos/XBike/XBike/XBike/Controllers/CurrentRideViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "448">
+               </Location>
+               <Location
+                  uuid = "0F6FA0D8-E8C2-4EBA-BD9A-E3DE97869AFF - fbc2dfb7af3231cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.GMSReverseGeocodeResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in XBike.CurrentRideViewController.startButtonPressed() -&gt; ()"
+                  moduleName = "XBike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chester/Desktop/Repos/XBike/XBike/XBike/Controllers/CurrentRideViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "0F6FA0D8-E8C2-4EBA-BD9A-E3DE97869AFF - 66936621a7381315"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "XBike.CurrentRideViewController.startButtonPressed() -&gt; ()"
+                  moduleName = "XBike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chester/Desktop/Repos/XBike/XBike/XBike/Controllers/CurrentRideViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "472">
+               </Location>
+               <Location
+                  uuid = "0F6FA0D8-E8C2-4EBA-BD9A-E3DE97869AFF - fbc2dfb7af323130"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.GMSReverseGeocodeResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in XBike.CurrentRideViewController.startButtonPressed() -&gt; ()"
+                  moduleName = "XBike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chester/Desktop/Repos/XBike/XBike/XBike/Controllers/CurrentRideViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2215E81C-4BB8-4C4F-A0BE-EFE6E4D7C571"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XBike/XBike/Controllers/CurrentRideViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "startButtonPressed()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2215E81C-4BB8-4C4F-A0BE-EFE6E4D7C571 - fbc2dfb7af3231ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.GMSReverseGeocodeResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in XBike.CurrentRideViewController.startButtonPressed() -&gt; ()"
+                  moduleName = "XBike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chester/Desktop/Repos/XBike/XBike/XBike/Controllers/CurrentRideViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "232">
+               </Location>
+               <Location
+                  uuid = "2215E81C-4BB8-4C4F-A0BE-EFE6E4D7C571 - fbc2dfb7af3231ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.GMSReverseGeocodeResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in XBike.CurrentRideViewController.startButtonPressed() -&gt; ()"
+                  moduleName = "XBike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chester/Desktop/Repos/XBike/XBike/XBike/Controllers/CurrentRideViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "288">
+               </Location>
+               <Location
+                  uuid = "2215E81C-4BB8-4C4F-A0BE-EFE6E4D7C571 - fbc2dfb7af323117"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.GMSReverseGeocodeResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in XBike.CurrentRideViewController.startButtonPressed() -&gt; ()"
+                  moduleName = "XBike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chester/Desktop/Repos/XBike/XBike/XBike/Controllers/CurrentRideViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "2215E81C-4BB8-4C4F-A0BE-EFE6E4D7C571 - fbc2dfb7af323117"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.GMSReverseGeocodeResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in XBike.CurrentRideViewController.startButtonPressed() -&gt; ()"
+                  moduleName = "XBike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chester/Desktop/Repos/XBike/XBike/XBike/Controllers/CurrentRideViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "276">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
