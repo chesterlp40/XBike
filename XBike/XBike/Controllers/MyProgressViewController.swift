@@ -11,6 +11,7 @@ import UIKit
 class MyProgressViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noDataStackView: UIStackView!
     
     internal let viewModel = TrackingDataViewModel()
 
@@ -18,23 +19,31 @@ class MyProgressViewController: BaseViewController {
         super.viewDidLoad()
         self.title = "My Progress"
         self.setupComponents()
-        self.viewModel.fetchInfo()
+        self.fetchInfo()
     }
     
     override func viewWillAppear(
         _ animated: Bool
     ) {
-        self.viewModel.fetchInfo()
-        self.tableView.reloadData()
+        self.fetchInfo()
     }
     
     private func setupComponents() {
+        self.noDataStackView.isHidden = false
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.register(
             UINib(nibName: "RideTimesCell", bundle: nil),
             forCellReuseIdentifier: "RideTimesCell"
         )
+    }
+    
+    private func fetchInfo() {
+        self.viewModel.fetchInfo()
+        self.tableView.reloadData()
+        if self.viewModel.trackingData.count != 0 {
+            self.noDataStackView.isHidden = true
+        }
     }
 }
 
