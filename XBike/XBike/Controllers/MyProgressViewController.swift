@@ -26,6 +26,7 @@ class MyProgressViewController: BaseViewController {
         _ animated: Bool
     ) {
         self.fetchInfo()
+        self.tableView.reloadData()
     }
     
     private func setupComponents() {
