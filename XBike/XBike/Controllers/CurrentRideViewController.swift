@@ -170,11 +170,6 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
     
     @objc
     func storeButtonPressed() {
-        guard
-            let modal = self.storeDataModal
-        else {
-            return
-        }
         self.saveData()
         self.polyline.map = nil
         self.storeDataModal?.infoView.isHidden = true
