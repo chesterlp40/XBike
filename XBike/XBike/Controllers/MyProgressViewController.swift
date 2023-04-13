@@ -12,20 +12,19 @@ class MyProgressViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var context = CoreDataManager.sharedInstance.persistentContainer.viewContext
-    internal var trackingData: [TrackingModel] = []
+    internal let viewModel = TrackingDataViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "My Progress"
         self.setupComponents()
-        self.fetchInfo()
+        self.viewModel.fetchInfo()
     }
     
     override func viewWillAppear(
         _ animated: Bool
     ) {
-        self.fetchInfo()
+        self.viewModel.fetchInfo()
         self.tableView.reloadData()
     }
     
@@ -37,17 +36,6 @@ class MyProgressViewController: BaseViewController {
             forCellReuseIdentifier: "RideTimesCell"
         )
     }
-    
-    internal func fetchInfo() {
-        let request: NSFetchRequest<TrackingModel> = NSFetchRequest(
-            entityName: "TrackingModel"
-        )
-        do {
-            self.trackingData = try self.context.fetch(request)
-        } catch {
-            print(error)
-        }
-    }
 }
 
 extension MyProgressViewController: UITableViewDelegate, UITableViewDataSource {
@@ -56,7 +44,7 @@ extension MyProgressViewController: UITableViewDelegate, UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return self.trackingData.count
+        return self.viewModel.trackingData.count
     }
     
     func tableView(
@@ -64,11 +52,11 @@ extension MyProgressViewController: UITableViewDelegate, UITableViewDataSource {
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "RideTimesCell", for: indexPath) as? RideTimesCell
-        cell?.timeLabel?.text = self.trackingData[indexPath.row].time
-        let streetStart = self.trackingData[indexPath.row].streetStart
-        let streetFinish = self.trackingData[indexPath.row].streetFinish
+        cell?.timeLabel?.text = self.viewModel.trackingData[indexPath.row].time
+        let streetStart = self.viewModel.trackingData[indexPath.row].streetStart
+        let streetFinish = self.viewModel.trackingData[indexPath.row].streetFinish
         cell?.tripLabel.text = "A: \(streetStart ?? "Unknown")\nB: \(streetFinish ?? "Unknown")"
-        cell?.distanceLabel.text = self.trackingData[indexPath.row].distance
+        cell?.distanceLabel.text = self.viewModel.trackingData[indexPath.row].distance
         return cell!
     }
 }

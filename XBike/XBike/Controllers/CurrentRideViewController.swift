@@ -13,7 +13,7 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
     
-    private var context = CoreDataManager.sharedInstance.persistentContainer.viewContext
+    internal let viewModel = TrackingDataViewModel()
     
     private(set) var trackingModal: RideTrackingModalView?
     private(set) var storeDataModal: StoreTrackingModalView?
@@ -198,17 +198,15 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
     }
     
     private func saveData() {
-        let trackingModel = TrackingModel(
-            context: self.context
-        )
-        trackingModel.time = self.totalTime
-        trackingModel.streetStart = !self.streetStart.isEmpty ? self.streetStart : "Unknown"
-        trackingModel.streetFinish = !self.streetFinish.isEmpty ? self.streetFinish : "Unknown"
         let kmDistance = self.distancePath / 1000
         let prettyDistance = String(format: "%.2f km", kmDistance)
-        trackingModel.distance = prettyDistance
         
-        try? self.context.save()
+        self.viewModel.saveData(
+            self.totalTime,
+            !self.streetStart.isEmpty ? self.streetStart : "Unknown",
+            !self.streetFinish.isEmpty ? self.streetFinish : "Unknown",
+            prettyDistance
+        )
     }
     
     func updateLabel(
