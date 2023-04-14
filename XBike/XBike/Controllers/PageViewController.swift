@@ -49,10 +49,6 @@ class PageViewController: UIViewController {
         )
         self.subTitleLabel.text = self.subTitle
         self.actionButton.layer.cornerRadius = 8
-        self.actionButton.titleLabel?.font = UIFont(
-            name: "Kohinoor Telugu Light",
-            size: 20
-        )
         self.actionButton.isHidden = !self.isLastPage
     }
     

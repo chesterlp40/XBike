@@ -124,7 +124,7 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
             }
             self.locationManager.startUpdatingLocation()
             self.polyline.map = self.mapView
-            self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
+            self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
                 self.timesUp += 1
                 self.updateLabel(modal.timeLabel)
             }
@@ -212,15 +212,15 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
     func updateLabel(
         _ label: UILabel
     ) {
-        let minutes = self.timesUp / 6000
-        let seconds = (self.timesUp % 6000) / 100
-        let hundredths = self.timesUp % 100
+        let hours = self.timesUp / 3600
+        let minutes = (self.timesUp % 3600) / 60
+        let seconds = self.timesUp % 60
         DispatchQueue.main.async {
             label.text = String(
                 format: "%02d : %02d : %02d",
+                hours,
                 minutes,
-                seconds,
-                hundredths
+                seconds
             )
         }
     }
