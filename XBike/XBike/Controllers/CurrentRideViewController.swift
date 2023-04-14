@@ -25,6 +25,7 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
     private(set) var distancePath: Double = 0
     private(set) var streetStart = ""
     private(set) var streetFinish = ""
+    private(set) var backgroundTask: UIBackgroundTaskIdentifier = .invalid
     private let locationManager = CLLocationManager()
     private let path = GMSMutablePath()
     private let polyline = GMSPolyline()
@@ -34,6 +35,39 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         self.title = "Current Ride"
         self.setupComponents()
+    }
+    
+    override func viewWillAppear(
+        _ animated: Bool
+    ) {
+        super.viewWillAppear(
+            animated
+        )
+        self.registerBackgroundTask()
+    }
+    
+    override func viewWillDisappear(
+        _ animated: Bool
+    ) {
+        super.viewWillDisappear(
+            animated
+        )
+        self.endBackgroundTask()
+    }
+    
+    private func registerBackgroundTask() {
+        self.backgroundTask = UIApplication.shared.beginBackgroundTask(
+            withName: "Timer Background Task"
+        ) {
+            self.endBackgroundTask()
+        }
+    }
+    
+    private func endBackgroundTask() {
+        UIApplication.shared.endBackgroundTask(
+            self.backgroundTask
+        )
+        self.backgroundTask = .invalid
     }
     
     private func setupComponents() {
@@ -124,7 +158,7 @@ class CurrentRideViewController: BaseViewController, CLLocationManagerDelegate {
             }
             self.locationManager.startUpdatingLocation()
             self.polyline.map = self.mapView
-            self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
                 self.timesUp += 1
                 self.updateLabel(modal.timeLabel)
             }
